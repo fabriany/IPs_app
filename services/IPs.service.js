@@ -25,7 +25,7 @@ class IPsService {
     const IPModel = new model();
     IPModel.date = new Date();
     IPModel.ip = requestIP.getClientIp(req);
-    IPModel.routePath =req.originalUrl;
+    IPModel.routePath =req.path;
 
     console.log(IPModel);
 
