@@ -1,5 +1,6 @@
 const boom = require('@hapi/boom');
 const model = require('../model/IPs.model');
+const requestIP = require('request-ip');
 
 class IPsService {
 
@@ -23,7 +24,7 @@ class IPsService {
   async create(req, res) {
     const IPModel = new model();
     IPModel.date = new Date();
-    IPModel.ip = req.connection.remoteAddress;
+    IPModel.ip = requestIP.getClientIp(req);
     IPModel.routePath =req.originalUrl;
 
     console.log(IPModel);
