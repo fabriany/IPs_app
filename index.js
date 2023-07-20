@@ -16,6 +16,7 @@ app.use(cors());
 app.use(logErrors);
 app.use(boomErrorHandler);
 app.use(errorHandler);
+app.enableCors();
 
 
 app.listen(port);
