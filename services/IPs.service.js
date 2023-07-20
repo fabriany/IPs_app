@@ -10,13 +10,13 @@ class IPsService {
         id: '1',
         date: '24/01/2022 23:21:16',
         ip: '190.147.132.40',
-        routePath: '/mantenimient-impresora-bogota'
+        url: '/mantenimient-impresora-bogota'
       },
       {
         id: '2',
         date: '24/01/2022 23:21:16',
         ip: '190.147.132.40',
-        routePath: '/mantenimient-impresora-bogota'
+        url: '/mantenimient-impresora-bogota'
       }
     ];
   }
@@ -25,7 +25,8 @@ class IPsService {
     const IPModel = new model();
     IPModel.date = new Date();
     IPModel.ip = requestIP.getClientIp(req);
-    IPModel.routePath =req.path;
+    IPModel.url =req.body.url;
+    IPModel.reloaded = req.body.reloaded;
 
     console.log(IPModel);
 

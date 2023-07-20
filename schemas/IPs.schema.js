@@ -4,7 +4,7 @@ Joi.objectID = require('joi-objectid')(Joi);
 const id = Joi.objectID();
 const date = Joi.string();
 const ip = Joi.string().ip({ version: ['ipv4', 'ipv6']});
-const routePath = Joi.string();
+const url = Joi.string();
 
 const createIPSchema = Joi.object({
 
@@ -13,13 +13,13 @@ const createIPSchema = Joi.object({
 const updatePatchIPSchema = Joi.object({
   date: date,
   ip: ip,
-  routePath: routePath
+  url: url
 });
 
 const updatePutIPSchema = Joi.object({
   date: date.required(),
   ip: ip.required(),
-  routePath: routePath.required()
+  url: url.required()
 });
 
 const getIPSchema = Joi.object({
