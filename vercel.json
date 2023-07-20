@@ -1,7 +1,14 @@
 {
-  "headers": [
+  "version": 2,
+  "builds": [
     {
-      "source": "/api/(.*)",
+      "src": "./index.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "source": "/ips",
       "headers": [
         { "key": "Access-Control-Allow-Credentials", "value": "true" },
         { "key": "Access-Control-Allow-Origin", "value": "*" },
