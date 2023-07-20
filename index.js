@@ -12,11 +12,13 @@ app.use(bodyParser.json());
 routerApi(app);
 
 app.use(express.json());
-app.use(cors());
+const DIRECTORIO_PERMITIDO_CORS = "https://turingcol.com";
+app.use(cors({
+  origin: DIRECTORIO_PERMITIDO_CORS
+}));
 app.use(logErrors);
 app.use(boomErrorHandler);
 app.use(errorHandler);
-app.enableCors();
 
 
 app.listen(port);
