@@ -1,6 +1,7 @@
 const express = require('express');
 const routerApi = require('./router');
 const initDB = require('./config/db');
+const cors = require('cors');
 const bodyParser = require('body-parser');
 const { logErrors, errorHandler, boomErrorHandler } = require('./middlewares/error.handler');
 
@@ -11,6 +12,7 @@ app.use(bodyParser.json());
 routerApi(app);
 
 app.use(express.json());
+app.use(cors());
 app.use(logErrors);
 app.use(boomErrorHandler);
 app.use(errorHandler);
