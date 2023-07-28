@@ -9,7 +9,18 @@ const service = new IPsService();
 router.get('/', async (req, res, next) => {
   try {
     const IPs = await service.find();
-    console.log(IPs);
+    console.log('find' + IPs.length);
+    res.json(IPs);
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.get('/findByDateRange', async (req, res, next) => {
+  try {
+    const { fechaInicio, fechaFin } = req.query;
+    const IPs = await service.findByDateRange(fechaInicio, fechaFin);
+    console.log('findByDateRange' + IPs.length);
     res.json(IPs);
   } catch (error) {
     next(error);

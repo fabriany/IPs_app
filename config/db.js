@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const DB_URI = process.env.MONGO_URL;
+const DB_URI = process.env.MONGO_URL || 'mongodb+srv://fabriany123:Mercurio.2022@cluster0.gikzy.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 module.exports = () => {
   const connect = () => {
     mongoose.connect(

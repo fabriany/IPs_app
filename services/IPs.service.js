@@ -70,6 +70,20 @@ class IPsService {
     return Update;
   }
 
+  async findByDateRange(fechaInicio, fechaFin) {
+    try {
+      const IPs = await model.find({
+        date: {
+          $gte: new Date(fechaInicio), 
+          $lte: new Date(fechaFin),
+        },
+      });
+      return IPs;
+    } catch (error) {
+      throw new Error('Error al buscar en la base de datos.');
+    }
+  }
+
 }
 
 module.exports = IPsService;
